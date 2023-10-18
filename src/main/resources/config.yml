@@ -1,0 +1,10 @@
+# Type of message to send (Options: MESSAGE, ACTION, TITLE)
+message-type: "message"
+# How often (in ticks) to check inventories
+period: 200
+
+messages:
+  prefix: ""
+  inventory-full: "&cYour inventory is full!"
+  no-permissions: "&#ff6969Insufficient permissions"
+  reload: "&#b7faa2InventoryFull has been reloaded &#66b04f🔃"

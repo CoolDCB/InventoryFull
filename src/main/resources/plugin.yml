@@ -1,0 +1,10 @@
+name: InventoryFull
+version: '${version}'
+main: me.dave.inventoryfull.InventoryFull
+api-version: '1.20'
+commands:
+  inventoryfull:
+    aliases:
+      - invfull
+    description: Main InventoryFull command
+    usage: /inventoryfull
