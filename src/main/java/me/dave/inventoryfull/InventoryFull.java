@@ -46,6 +46,11 @@ public final class InventoryFull extends JavaPlugin {
             morePaperLib = null;
         }
 
+        if (updater != null) {
+            updater.shutdown();
+            updater = null;
+        }
+
         configManager = null;
     }
 
@@ -65,7 +70,13 @@ public final class InventoryFull extends JavaPlugin {
         switch (configManager.getMessageType()) {
             case MESSAGE -> ChatColorHandler.sendMessage(player, configManager.getMessage("inventory-full"));
             case ACTION, ACTION_BAR -> ChatColorHandler.sendActionBarMessage(player, configManager.getMessage("inventory-full"));
-            case TITLE -> {}
+            case TITLE -> {
+                String[] titleRaw = configManager.getMessage("inventory-full").split("\\|");
+                String title = titleRaw[0];
+                String subtitle = titleRaw.length == 2 ? titleRaw[1] : "";
+
+                player.sendTitle(ChatColorHandler.translateAlternateColorCodes(title), ChatColorHandler.translateAlternateColorCodes(subtitle), 10, 70, 20);
+            }
         }
     }
 
